@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP Sports | Play Hard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary-color: #0f172a; /* Dark Navy */
+            --accent-color: #f59e0b; /* Sporty Orange */
+            --light-bg: #f8fafc;
+            --text-color: #334155;
+            --white: #ffffff;
+        }
+
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn-join {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .btn-join:hover {
+            transform: scale(1.05);
+        }
+
+        /* Mobile Menu Icon */
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                        url('https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-btn {
+            padding: 1rem 2.5rem;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* --- SPORTS CATEGORIES --- */
+        .section {
+            padding: 4rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        /* --- LATEST NEWS --- */
+        .news-section {
+            background-color: var(--light-bg);
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .news-date {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem;
+            text-align: center;
+            border-radius: 5px;
+            margin-right: 1.5rem;
+            min-width: 80px;
+        }
+
+        .news-date span {
+            display: block;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .news-date small {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .social-links {
+            margin: 1.5rem 0;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 2rem 0;
+                transition: 0.3s;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">MP <span>Sports</span></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sports">Sports</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn-join">Join Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <h1>Unleash Your Potential</h1>
+        <p>Join the premier sports academy in the region. Training, tournaments, and trophies await you.</p>
+        <button class="hero-btn">Explore Sports</button>
+    </section>
+
+    <!-- SPORTS CATEGORIES -->
+    <section class="section" id="sports">
+        <h2 class="section-title">Our Sports</h2>
+        <div class="grid-container">
+            <!-- Cricket -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1531415074968-b9d6d1f733e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cricket">
+                <div class="card-content">
+                    <h3>Cricket</h3>
+                    <p>Professional coaching for batsmen, bowlers, and all-rounders.</p>
+                </div>
+            </div>
+            <!-- Football -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Football">
+                <div class="card-content">
+                    <h3>Football</h3>
+                    <p>Build your stamina and skill with our expert football trainers.</p>
+                </div>
+            </div>
+            <!-- Basketball -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Basketball">
+                <div class="card-content">
+                    <h3>Basketball</h3>
+                    <p>Master the dribble and slam dunk at our MP courts.</p>
+                </div>
+            </div>
+            <!-- Badminton -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1626245027680-80a0880cf248?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Badminton">
+                <div class="card-content">
+                    <h3>Badminton</h3>
+                    <p>Indoor courts available for singles and doubles practice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LATEST NEWS -->
+    <section class="section news-section" id="news">
+        <h2 class="section-title">Latest News</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="news-item">
+                <div class="news-date">
+                    <span>12</span>
+                    <small>Oct</small>
+                </div>
+                <div>
+                    <h3>MP Cricket Team Wins State Cup</h3>
+                    <p>Our Under-19 cricket team brought home the trophy after an exciting final match...</p>
+                </div>
+            </div>
+            <div class="news-item">
+                <div class="news-date">
+                    <span>10</span>
+                    <small>Oct</small>
+                </div>
+                <div>
+                    <h3>New Football Academy Opening</h3>
+                    <p>We are excited to announce a new branch opening in the western region...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <div class="logo">MP <span>Sports</span></div>
+        <p>Health • Fitness • Victory</p>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        
+        <p>&copy; 2023 MP Sports. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
