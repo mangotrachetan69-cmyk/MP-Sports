@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP Sports | Madhya Pradesh Sports News</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #003366; /* MP Blue */
+            --accent-color: #FF9933;  /* Saffron */
+            --light-bg: #f4f4f4;
+            --text-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,51,102,0.7), rgba(0,51,102,0.7)), url('https://source.unsplash.com/1600x900/?cricket,stadium');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        /* News Section */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .news-content {
+            padding: 15px;
+        }
+
+        .tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3px 8px;
+            font-size: 0.8rem;
+            border-radius: 3px;
+        }
+
+        .news-content h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">MP Sports Hub</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#cricket">Cricket</a></li>
+                    <li><a href="#athletics">Athletics</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Madhya Pradesh Sports Authority</h1>
+            <p>Latest updates on Cricket, Hockey, and Athletics from Bhopal, Indore, and Jabalpur.</p>
+            <a href="#latest" class="btn">Read Latest News</a>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <div class="container">
+        <div style="text-align: center;">
+            <h2 class="section-title">Latest Updates</h2>
+        </div>
+        
+        <div class="news-grid" id="latest">
+            <!-- News Item 1 -->
+            <div class="news-card">
+                <!-- Using placeholder image -->
+                <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1531415074968-b0748d6720e9?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="news-content">
+                    <span class="tag">Cricket</span>
+                    <h3>MP Senior Team wins Vijay Hazare Trophy</h3>
+                    <p>The Madhya Pradesh cricket team created history by reaching the semi-finals...</p>
+                </div>
+            </div>
+
+            <!-- News Item 2 -->
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="news-content">
+                    <span class="tag">Athletics</span>
+                    <h3>State Athletics Meet in Bhopal</h3>
+                    <p>Over 500 athletes participated in the state-level meet held at the Arawali Stadium.</p>
+                </div>
+            </div>
+
+            <!-- News Item 3 -->
+            <div class="news-card">
+                <div class="news-img" style="background-image: url('https://images.unsplash.com/photo-1515703403366-26c933a60058?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="news-content">
+                    <span class="tag">Badminton</span>
+                    <h3>Indore Junior Badminton Championship</h3>
+                    <p>Young talent from across the state gathered in Indore for the annual junior championship.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 MP Sports Hub. All rights reserved.</p>
+        <p>Follow us for daily updates on Madhya Pradesh Sports.</p>
+    </footer>
+
+    <!-- Simple JavaScript -->
+    <script>
+        // Simple script to handle navigation smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic Footer Year
+        const year = new Date().getFullYear();
+        document.querySelector('footer p').innerHTML = `&copy; ${year} MP Sports Hub. All rights reserved.`;
+    </script>
+
+</body>
+</html>
